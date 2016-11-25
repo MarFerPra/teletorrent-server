@@ -1,0 +1,12 @@
+.clickable {
+  cursor: pointer;
+}
+
+.content-wrapper{
+  width: 100%;
+}
+
+.frontpage-wrapper{
+  margin-top: 10%;
+  width: 100%;
+}

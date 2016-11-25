@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teletorrent</title>
+    <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection" />
+    <link href="./assets/material_icons/material-icons.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./assets/styles.css" />
+    <script>
+      window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');
+      window.Hammer = require('./node_modules/materialize-css/js/hammer.min.js');
+      require('babel-register');
+      require('./app/components/main');
+    </script>
+    <script src="./node_modules/materialize-css/dist/js/materialize.min.js"></script>
+</head>
+
+<body>
+
+    <nav id="nav-bar">
+        <div class="nav-wrapper">
+            <a href="#!" class="left brand-logo"><i class="material-icons">cloud</i>Teletorrrent</a>
+            <ul id="nav-mobile" class="right">
+                <li class="nav-option"><a value="new_torrent"><i class="material-icons">add</i></a></li>
+                <li class="nav-option"><a value="downloads"><i class="material-icons">file_download</i></a></li>
+                <li class="nav-option"><a value="upload"><i class="material-icons">file_upload</i></a></li>
+                <li class="nav-option"><a value="paused"><i class="material-icons">pause_circle_outline</i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="content"></div>
+
+    <script>
+      $(document).ready(() => {
+          $('.nav-option').on('click', (ev) => {
+              $('li.active').removeClass('active');
+              $(ev.target.parentElement.parentElement).addClass('active');
+              $(document).trigger('option-changed', $(ev.target.parentElement).attr("value"));
+          });
+      })
+    </script>
+
+</body>
+
+</html>

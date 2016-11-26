@@ -20,12 +20,12 @@
 
     <nav id="nav-bar">
         <div class="nav-wrapper">
-            <a href="#!" class="left brand-logo"><i class="material-icons">cloud</i>Teletorrrent</a>
+            <a href="#!"value="frontpage" class="left brand-logo nav-option"><i class="material-icons">cloud</i>Teletorrrent</a>
             <ul id="nav-mobile" class="right">
-                <li class="nav-option"><a value="new_torrent"><i class="material-icons">add</i></a></li>
-                <li class="nav-option"><a value="downloads"><i class="material-icons">file_download</i></a></li>
-                <li class="nav-option"><a value="upload"><i class="material-icons">file_upload</i></a></li>
-                <li class="nav-option"><a value="paused"><i class="material-icons">pause_circle_outline</i></a></li>
+                <li class="nav-option clickable" value="new_torrent"><i class="material-icons">add</i></li>
+                <li class="nav-option clickable" value="downloads" ><i class="material-icons">file_download</i></li>
+                <li class="nav-option clickable" value="upload" ><i class="material-icons">file_upload</i></li>
+                <li class="nav-option clickable" value="paused" ><i class="material-icons">pause_circle_outline</i></li>
             </ul>
         </div>
     </nav>
@@ -35,9 +35,21 @@
     <script>
       $(document).ready(() => {
           $('.nav-option').on('click', (ev) => {
+              ev.preventDefault();
+              ev.stopPropagation();
               $('li.active').removeClass('active');
-              $(ev.target.parentElement.parentElement).addClass('active');
-              $(document).trigger('option-changed', $(ev.target.parentElement).attr("value"));
+
+              let optionElement = ev.target;
+
+              if($(ev.target).hasClass('material-icons'))
+                optionElement = ev.target.parentElement;
+
+              let optionValue = $(optionElement).attr("value");
+
+              if(optionValue != 'frontpage')
+                $(optionElement).addClass('active');
+
+              $(document).trigger('option-changed', optionValue);
           });
       })
     </script>

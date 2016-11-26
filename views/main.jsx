@@ -6,7 +6,7 @@ var Main = React.createClass({
 
   getInitialState: function() {
     return{
-      optionSelected: ""
+      optionSelected: "frontpage"
     }
   },
 
@@ -31,7 +31,7 @@ var Main = React.createClass({
   render: function() {
     return (
       <div>
-        {!this.state.optionSelected ? <FrontPage /> : this.renderSelectedOption() }
+        { this.state.optionSelected === 'frontpage'  ? <FrontPage /> : this.renderSelectedOption() }
       </div>
     )
   }

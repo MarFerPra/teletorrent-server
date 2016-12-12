@@ -1,6 +1,8 @@
 "use strict";
 
-module.exports = function(client){
+const client = require('./clientInitializer');
+
+module.exports = {
 
   /* Torrent: magnet uri(string), torrent file (buffer), persed torrent,
       http url to torrent file, filesystem path to torrent. */
@@ -9,11 +11,12 @@ module.exports = function(client){
     let downloadAdded = client.add(torrent, (torrent) => {
       console.log("Downloaded: ", torrent);
     });
-    console.log("Downloading: ", ownloadAdded);
-  }
+    console.log("Downloading: ", downloadAdded);
+  },
 
   getTorrents: () => {
+    console.log("Get torrents!");
     return client.torrents;
-  };
+  }
 
-};
+}

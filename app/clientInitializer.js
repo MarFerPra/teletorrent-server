@@ -1,6 +1,6 @@
 "use strict";
 
-var WebTorrent = require('webtorrent');
+const WebTorrent = require('webtorrent');
 
 const client = new WebTorrent();
 

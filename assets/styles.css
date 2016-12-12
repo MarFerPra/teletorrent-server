@@ -11,6 +11,14 @@
   width: 100%;
 }
 
+.magnet-link-input {
+  margin-top: 0px;
+}
+
 .nav-option {
   padding: 0 15px;
+}
+
+.add-torrent-btn {
+  margin-top: 15px;
 }

@@ -5,8 +5,6 @@ import Main from '../views/main.jsx';
 const client = require('./clientInitializer');
 const clientHandler = require('./clientHandler');
 
-console.log(clientHandler.getTorrents(client));
-
 window.onload = function(){
-  ReactDOM.render(<Main />, document.getElementById('content'));
+  ReactDOM.render(<Main client={client} clientHandler={clientHandler} />, document.getElementById('content'));
 }

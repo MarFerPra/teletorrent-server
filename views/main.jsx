@@ -26,10 +26,10 @@ var Main = React.createClass({
     getSelectedOption: function() {
         switch (this.state.optionSelected) {
             case 'new_torrent':
-                return <NewTorrent />
+                return <NewTorrent addTorrent={ this.props.clientHandler.addDownload } />
                 break;
             case 'downloads':
-                return <Downloads />
+                return <Downloads getTorrents={ this.props.clientHandler.getTorrents } />
                 break
             case 'uploads':
                 return <Uploads />

@@ -27,6 +27,6 @@
     "webtorrent": "^0.98.0"
   },
   "devDependencies": {
-    "electron": "^1.4.7"
+    "electron": "^9.1.0"
   }
 }
